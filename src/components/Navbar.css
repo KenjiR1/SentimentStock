@@ -1,0 +1,60 @@
+.navbar {
+  display: flex;
+  justify-content: space-between; /* pushes logo left, links right */
+  align-items: center;
+  padding: 1.25rem 3rem;
+  background-color: #111827; /* dark background */
+  color: white;
+}
+
+.logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #ffffff, #00e5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
+}
+.logo:hover {
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.7);
+  transform: scale(1.03);
+}
+
+
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem; /* spacing between links */
+}
+
+.nav-links a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding-bottom: 4px; /* to make space for the underline */
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #94d2bd; /* the accent color */
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #94d2bd;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+

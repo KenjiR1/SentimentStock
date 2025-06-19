@@ -1,3 +1,11 @@
+
+
+
+import TraySummary from "../components/tray/TraySummary";
+import TrayChart from "../components/tray/TrayChart";
+import TrayMetrics from "../components/tray/TrayMetrics";
+import TrayNews from "../components/tray/TrayNews";
+import TrayModel from "../components/tray/TrayModel";
 import { motion, AnimatePresence } from "framer-motion";
 import "./ExpandedCard.css";
 
@@ -24,13 +32,13 @@ export default function ExpandedCard({ stock, onClose }) {
           <h2>{stock.name} ({stock.ticker})</h2>
 
           <div className="tray-grid">
-            <div className="tray-module">SentiChart</div>
-            <div className="tray-module">SentiSummary</div>
-            <div className="tray-module">SentiNews</div>
-            <div className="tray-module">SentiMetrics</div>
-            <div className="tray-module">Senti Model Metrics</div>
-            <div className="tray-module">Something else</div>
-          </div>
+          <div className="tray-module"><TrayChart stock={stock}/></div>
+          <div className="tray-module"><TraySummary stock={stock}/></div>
+          <div className="tray-module"><TrayNews stock={stock}/></div>
+          <div className="tray-module"><TrayMetrics stock={stock}/></div>
+          <div className="tray-module"><TrayModel stock={stock}/></div>
+          <div className="tray-module">Something else</div>
+        </div>
         </motion.div>
       </motion.div>
     </AnimatePresence>
