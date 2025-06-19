@@ -32,7 +32,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      <footer>© 2025 SentiStock. All rights reserved.</footer>
+      <footer>© 2025 SentiStock. All rights reserved. This app is a prototype. No information displayed is real.</footer>
     </>
   );
 }

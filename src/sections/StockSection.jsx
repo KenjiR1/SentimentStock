@@ -7,7 +7,7 @@ const initialCompanies = [
   {
     ticker: "TSLA",
     name: "Tesla, Inc.",
-    price: 0,
+    price: 523,
     sentiment: "up",
     sentimentChange: "+0.26",
   },
