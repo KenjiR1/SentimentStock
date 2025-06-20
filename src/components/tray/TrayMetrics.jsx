@@ -1,8 +1,10 @@
 
+import "./TrayTitle.css"
+
 export default function TrayMetrics() {
     return (
         <div>
-            <h3>SentiMetrics</h3>
+            <h3 className="TrayTitle">SentiMetrics</h3>
             <li>Market Cap: 1.04T</li>
             <li>P/E: 184.03 </li>
             <li>RSI: 48.877 </li>

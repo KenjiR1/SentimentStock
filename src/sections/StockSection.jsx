@@ -1,5 +1,6 @@
 // src/sections/StockSection.jsx
 import StockCard from "../components/StockCard";
+import SearchBar from "../components/SearchBar";
 import { useEffect, useState } from "react";
 import "./StockSection.css"; // (optional, create this if needed)
 
@@ -83,8 +84,20 @@ const initialCompanies = [
   },
 ];
 
-export default function StockSection({ onCardClick, expandedTicker }) {
+export default function StockSection({ onCardClick}) {
   const [companiesData, setCompaniesData] = useState(initialCompanies);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filter, setFilter] = useState("");
+
+  const filteredCompanies = companiesData.filter((company) => {
+    const matchesSearch =
+      company.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      company.ticker.toLowerCase().includes(searchTerm.toLowerCase());
+
+      const matchesFilter = filter ? company.sentiment === filter : true;
+
+      return matchesSearch && matchesFilter;
+  })
 
   useEffect(() => {
     async function fetchPrices() {
@@ -117,26 +130,24 @@ export default function StockSection({ onCardClick, expandedTicker }) {
   return (
     <div id="stock-section" className="content-wrapper">
       <h1 className="section-title">Stock Sentiment Overview</h1>
-      <div className="search-container">
-        <input type="text" placeholder="Search stocks..." />
-        <div className="search-filter-container">
-          <select className="filter-dropdown">
-            <option value="">Filter by</option>
-            <option value="up">Highest Sentiment</option>
-            <option value="down">Lowest Sentiment</option>
-          </select>
-        </div>
-      </div>
 
+      <SearchBar
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        filter={filter}
+        setFilter={setFilter}
+        />
+      <div className="card-scroll-container">
       <section className="card-container">
-        {companiesData.map((company) => (
+        {filteredCompanies.map((company) => (
           <StockCard
             key={company.ticker}
             {...company}
             onToggle={() => onCardClick(company)}
-          />
+            />
         ))}
       </section>
+      </div>
     </div>
-  );
+  )
 }

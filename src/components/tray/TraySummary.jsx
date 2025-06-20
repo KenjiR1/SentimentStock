@@ -1,8 +1,9 @@
+import "./TrayTitle.css"
 
 export default function TraySummary(){
     return (
         <div>
-            <h3>SentiSummary</h3>
+            <h3 className="TrayTitle">SentiSummary</h3>
             <p>This months's public sentiment is mildly positive. Engagement is rising.</p>
             <ul>
                 <li>Reddit: 68% Positive</li>

@@ -48,6 +48,12 @@
   font-weight: 600;
 }
 
+.ticker {
+    font-size: 0.9rem;
+    color: var(--neutral-color);
+    margin-top:-10px;
+    margin-bottom: 10px;
+}
 .price {
   color: var(--text-color);
 }

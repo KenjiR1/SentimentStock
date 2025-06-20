@@ -1,8 +1,10 @@
 
+import "./TrayTitle.css"
+
 export default function TrayMetrics() {
     return (
         <div>
-            <h3>SentiModel</h3>
+            <h3 className="TrayTitle">SentiModel</h3>
             <li>Prediction: Up</li>
             <li>Model Confidence: 76% </li>
             <li>Precision: .86</li>
