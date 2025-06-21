@@ -61,6 +61,7 @@ const stockPrices = [
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     interaction: {
       mode: "index",
       intersect: false,

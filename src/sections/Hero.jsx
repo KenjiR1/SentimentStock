@@ -22,6 +22,14 @@ function Hero() {
         > Explore Stocks
           </motion.a>
 
+        
+        <svg className="hero-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path
+        fill="rgba(5, 40, 68, 0.8)"
+        d="M0,200 C360,100 720,300 1080,120 L1440,40 L1440,320 L0,320 Z"
+        />
+        </svg>
+
     </section>
   );
 }

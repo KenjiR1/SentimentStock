@@ -1,0 +1,75 @@
+/* src/components/TraySummary.css */
+
+/* Root wrapper */
+.tray-summary-root {
+  max-width: 800px;        /* or 100% for full width of parent */
+  margin: 0 auto;
+  color: #eee;             /* adjust for your theme */
+}
+
+/* Header */
+.tray-summary-header {
+  text-align: center;
+  margin-bottom: 24 px;
+}
+
+.summary-text {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* Doughnut charts row */
+.doughnut-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 0 px;
+}
+
+/* Each chart card */
+.doughnut-card {
+  width: 120px;
+  /* height determined by chart */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Label under each doughnut */
+.doughnut-label {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.platform-name {
+  display: block;
+  font-weight: 500;
+}
+
+.platform-percent {
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .doughnut-row {
+    gap: 16px;
+  }
+  .doughnut-card {
+    width: 100px;
+  }
+  .bar-label {
+    width: 50px;
+    font-size: 0.8rem;
+  }
+  .bar-percent {
+    width: 35px;
+    font-size: 0.8rem;
+  }
+}
