@@ -1,11 +1,6 @@
 /* src/components/TraySummary.css */
 
 /* Root wrapper */
-.tray-summary-root {
-  max-width: 800px;        /* or 100% for full width of parent */
-  margin: 0 auto;
-  color: #eee;             /* adjust for your theme */
-}
 
 /* Header */
 .tray-summary-header {
@@ -13,9 +8,10 @@
   margin-bottom: 24 px;
 }
 
-.summary-text {
-  font-size: 1rem;
-  opacity: 0.8;
+.summary {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  text-align: center;
 }
 
 /* Doughnut charts row */
@@ -30,7 +26,7 @@
 
 /* Each chart card */
 .doughnut-card {
-  width: 120px;
+  width: 80px;
   /* height determined by chart */
   display: flex;
   flex-direction: column;

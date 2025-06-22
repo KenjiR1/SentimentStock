@@ -1,0 +1,64 @@
+/* src/components/TrayMetrics.css */
+
+
+/* Grid: 2 columns, 2 rows automatically */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Individual metric “card” */
+.metric-card {
+  background: var(--card-bg, #161b22);
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon container: slightly smaller icon if desired */
+.metric-icon {
+  color: var(--accent-color, #94d2bd);
+  flex-shrink: 0;
+}
+
+/* Info: label above value or side by side? 
+   Here: label small above value */
+.metric-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label styling */
+.metric-label {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-bottom: 2px;
+}
+
+/* Value styling */
+.metric-value {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Responsive tweaks: if container too narrow, maybe switch to single column */
+@media (max-width: 360px) {
+  .metrics-grid {
+    grid-template-columns: 1fr; /* stack if very narrow */
+  }
+  .metric-card {
+    justify-content: flex-start;
+  }
+}

@@ -56,7 +56,7 @@ export default function TraySummary() {
   return (
     <div className="tray-summary-root">
       <h3 className="TrayTitle">SentiSummary</h3>
-
+        
       <motion.div
         className="doughnut-row"
         variants={containerVariant}

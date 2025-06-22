@@ -1,91 +1,92 @@
 // src/sections/StockSection.jsx
 import StockCard from "../components/StockCard";
 import SearchBar from "../components/SearchBar";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./StockSection.css"; // (optional, create this if needed)
 
 const initialCompanies = [
   {
     ticker: "TSLA",
     name: "Tesla, Inc.",
-    price: 523,
+    price: 523,          // original price kept
     sentiment: "up",
     sentimentChange: "+0.26",
   },
   {
     ticker: "AAPL",
     name: "Apple, Inc.",
-    price: 0,
+    price: 138.40,       // use original static price
     sentiment: "down",
     sentimentChange: "-0.16",
   },
   {
     ticker: "AMZN",
     name: "Amazon.com, Inc.",
-    price: 0,
+    price: 3120.55,
     sentiment: "neutral",
     sentimentChange: "0.0",
   },
   {
     ticker: "GOOGL",
     name: "Alphabet, Inc.",
-    price: 0,
+    price: 612.04,
     sentiment: "up",
     sentimentChange: "+0.32",
   },
   {
     ticker: "NVDA",
     name: "NVIDIA Corp",
-    price: 0,
+    price: 141.97,
     sentiment: "down",
     sentimentChange: "-0.14",
   },
   {
     ticker: "MSFT",
     name: "Microsoft Corporation",
-    price: 0,
+    price: 290.12,
     sentiment: "up",
     sentimentChange: "+0.43",
   },
   {
     ticker: "META",
     name: "Meta Platforms, Inc.",
-    price: 0,
+    price: 190.47,
     sentiment: "down",
     sentimentChange: "-0.19",
   },
   {
     ticker: "NFLX",
     name: "Netflix, Inc.",
-    price: 0,
+    price: 350.23,
     sentiment: "up",
     sentimentChange: "+0.78",
   },
   {
     ticker: "INTC",
     name: "Intel Corporation",
-    price: 0,
+    price: 50.67,
     sentiment: "down",
     sentimentChange: "-0.16",
   },
   {
     ticker: "ADBE",
     name: "Adobe Inc.",
-    price: 0,
+    price: 640.98,
     sentiment: "neutral",
     sentimentChange: "+0.02",
   },
   {
     ticker: "ORCL",
     name: "Oracle Corporation",
-    price: 0,
+    price: 87.34,
     sentiment: "up",
     sentimentChange: "+0.64",
   },
 ];
 
-export default function StockSection({ onCardClick}) {
-  const [companiesData, setCompaniesData] = useState(initialCompanies);
+export default function StockSection({ onCardClick }) {
+  // Use the static initialCompanies array directly
+  const [companiesData] = useState(initialCompanies);
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState("");
 
@@ -93,39 +94,9 @@ export default function StockSection({ onCardClick}) {
     const matchesSearch =
       company.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       company.ticker.toLowerCase().includes(searchTerm.toLowerCase());
-
-      const matchesFilter = filter ? company.sentiment === filter : true;
-
-      return matchesSearch && matchesFilter;
-  })
-
-  useEffect(() => {
-    async function fetchPrices() {
-      const updatedData = await Promise.all(
-        initialCompanies.map(async (company) => {
-          try {
-            const res = await fetch(
-              `http://localhost:8000/price?ticker=${company.ticker}`
-            );
-            const data = await res.json();
-            return {
-              ...company,
-              price: data.price ?? 0,
-            };
-          } catch (error) {
-            console.error("Error fetching price for", company.ticker, error);
-            return {
-              ...company,
-              price: 0,
-            };
-          }
-        })
-      );
-      setCompaniesData(updatedData);
-    }
-
-    fetchPrices();
-  }, []);
+    const matchesFilter = filter ? company.sentiment === filter : true;
+    return matchesSearch && matchesFilter;
+  });
 
   return (
     <div id="stock-section" className="content-wrapper">
@@ -136,18 +107,18 @@ export default function StockSection({ onCardClick}) {
         setSearchTerm={setSearchTerm}
         filter={filter}
         setFilter={setFilter}
-        />
+      />
       <div className="card-scroll-container">
-      <section className="card-container">
-        {filteredCompanies.map((company) => (
-          <StockCard
-            key={company.ticker}
-            {...company}
-            onToggle={() => onCardClick(company)}
+        <section className="card-container">
+          {filteredCompanies.map((company) => (
+            <StockCard
+              key={company.ticker}
+              {...company}
+              onToggle={() => onCardClick(company)}
             />
-        ))}
-      </section>
+          ))}
+        </section>
       </div>
     </div>
-  )
+  );
 }

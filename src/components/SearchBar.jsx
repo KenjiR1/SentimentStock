@@ -18,7 +18,7 @@ export default function SearchBar({ searchTerm, setSearchTerm, filter, setFilter
                 >
                 <option value="">Filter by</option>
                 <option value="up">Highest Sentiment</option>
-                <option Value="down">Lowest Sentiment</option>
+                <option value="down">Lowest Sentiment</option>
                 </select>
             </div>
         </div>
