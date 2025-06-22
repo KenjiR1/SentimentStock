@@ -1,0 +1,11 @@
+
+
+
+/* Container for the chart: ensure it fills available space in tray-module */
+.prediction-chart-container {
+  flex: 1;               /* fill vertical space in parent .tray-module */
+  position: relative;
+  min-height: 170px;     /* fallback height if parent doesn’t enforce height */
+}
+
+/* For Chart.js canvas: react-chartjs-2 handles sizing when parent is relative/flex */

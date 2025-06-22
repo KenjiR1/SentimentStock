@@ -1,0 +1,6 @@
+
+
+.tray-chart-container {
+  flex: 1;
+  position: relative;   /* ensure visible area */
+}

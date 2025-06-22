@@ -5,7 +5,8 @@ import {
   ShieldCheck,   // for confidence
   Target,        // for precision
   Eye,           // for recall (seeing/retrieving)
-  CheckCircle    // for accuracy
+  CheckCircle,    // for accuracy
+  ArrowUpNarrowWideIcon
 } from "lucide-react";
 import "./TrayModel.css";
 import "./TrayTitle.css";
@@ -15,15 +16,15 @@ export default function TrayMetrics() {
   const metrics = [
     {
       key: "marketCap",
-      label: "Confidence",
-      value: "91%",
-      icon: <ShieldCheck size={24} />,
+      label: "Prediction",
+      value: "Up",
+      icon: <ArrowUpNarrowWideIcon size={24} />,
     },
     {
       key: "peRatio",
-      label: "Precision",
-      value: "0.87",
-      icon: <Target size={24} />,
+      label: "Confidence",
+      value: "91%",
+      icon: <ShieldCheck size={24} />,
     },
     {
       key: "quarterlyRevenue",
@@ -59,7 +60,7 @@ export default function TrayMetrics() {
 
   return (
     <div className="tray-metrics-root">
-      <h3 className="TrayTitle">SentiPerformance</h3>
+      <h3 className="TrayTitle">SentiModel</h3>
 
       <motion.div
         className="metrics-grid"

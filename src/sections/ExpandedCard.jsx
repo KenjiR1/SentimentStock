@@ -6,6 +6,7 @@ import TrayChart from "../components/tray/TrayChart";
 import TrayMetrics from "../components/tray/TrayMetrics";
 import TrayNews from "../components/tray/TrayNews";
 import TrayModel from "../components/tray/TrayModel";
+import TrayPrediction from "../components/tray/TrayPrediction";
 import { motion, AnimatePresence } from "framer-motion";
 import "./ExpandedCard.css";
 
@@ -37,7 +38,7 @@ export default function ExpandedCard({ stock, onClose }) {
           <div className="tray-module"><TrayNews stock={stock}/></div>
           <div className="tray-module"><TrayMetrics stock={stock}/></div>
           <div className="tray-module"><TrayModel stock={stock}/></div>
-          <div className="tray-module">Something else</div>
+          <div className="tray-module"><TrayPrediction stock={stock}/></div>
         </div>
         </motion.div>
       </motion.div>

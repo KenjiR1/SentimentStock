@@ -1,17 +1,15 @@
-/* src/components/TraySummary.css */
+/* src/components/tray/TraySummary.css */
 
-/* Root wrapper */
-
-/* Header */
-.tray-summary-header {
-  text-align: center;
-  margin-bottom: 24 px;
+/* Title styling from TrayTitle.css applies */
+.tray-summary-root > .TrayTitle {
+  margin-bottom: -20px;
 }
-
-.summary {
-  font-size: 0.9rem;
-  opacity: 0.6;
+/* Summary text */
+.summary-text {
+  font-size: 0.95rem;
+  opacity: 0.8;
   text-align: center;
+  padding-bottom: 8px;
 }
 
 /* Doughnut charts row */
@@ -21,36 +19,73 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 24px;
-  margin-bottom: 0 px;
+  margin: 0;
 }
 
 /* Each chart card */
 .doughnut-card {
   width: 80px;
-  /* height determined by chart */
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+}
+
+/* Wrapper to position overlay badge */
+.doughnut-chart-wrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+/* Overlay badge in chart corner */
+.doughnut-overlay-badge {
+  position: absolute;
+  top: 2px;
+  right: 80px;
+  /* adjust as needed so it doesn’t cut off chart */
+}
+
+/* Change badge styling per platform */
+.platform-change-badge {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 4px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.platform-change-badge.up {
+  background-color: rgba(46, 160, 67, 0.2);
+  color: #2ea043;
+}
+.platform-change-badge.down {
+  background-color: rgba(218, 54, 51, 0.2);
+  color: #da3633;
+}
+.badge-text {
+  line-height: 1;
 }
 
 /* Label under each doughnut */
 .doughnut-label {
-  margin-top: 8px;
+  margin-top: 6px;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  line-height: 1.2;
 }
-
 .platform-name {
   display: block;
   font-weight: 500;
+  color: var(--text-color);
 }
-
 .platform-percent {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   opacity: 0.9;
+  color: var(--text-color);
 }
-
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
@@ -58,14 +93,10 @@
     gap: 16px;
   }
   .doughnut-card {
-    width: 100px;
+    width: 70px;
   }
-  .bar-label {
-    width: 50px;
-    font-size: 0.8rem;
-  }
-  .bar-percent {
-    width: 35px;
-    font-size: 0.8rem;
+  .doughnut-chart-wrapper {
+    width: 70px;
+    height: 70px;
   }
 }
