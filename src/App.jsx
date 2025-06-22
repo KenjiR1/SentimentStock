@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import StockSection from "./sections/StockSection";
 import ExpandedCard from "./sections/ExpandedCard";
+import { Analytics } from "@vercel/analytics/next"
 import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
@@ -21,6 +22,7 @@ export default function App() {
         <StockSection
           onCardClick={openExpandedCard}
         />
+        <Analytics />
       </main>
 
       <AnimatePresence>
