@@ -2,7 +2,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import StockSection from "./sections/StockSection";
 import ExpandedCard from "./sections/ExpandedCard";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react";
 import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
