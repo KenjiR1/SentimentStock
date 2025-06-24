@@ -1,5 +1,3 @@
-// src/data/stockData.js
-
 const initialCompanies = [
   {
     ticker: "TSLA",
@@ -78,6 +76,98 @@ const initialCompanies = [
     sentiment: "up",
     sentimentChange: "+0.64",
   },
+  {
+    ticker: "UBER",
+    name: "Uber Technologies Inc.",
+    price: 42.18,
+    sentiment: "up",
+    sentimentChange: "+0.29",
+  },
+  {
+    ticker: "DIS",
+    name: "The Walt Disney Company",
+    price: 92.44,
+    sentiment: "down",
+    sentimentChange: "-0.21",
+  },
+  {
+    ticker: "CRM",
+    name: "Salesforce, Inc.",
+    price: 215.67,
+    sentiment: "up",
+    sentimentChange: "+0.11",
+  },
+  {
+    ticker: "PYPL",
+    name: "PayPal Holdings, Inc.",
+    price: 65.23,
+    sentiment: "down",
+    sentimentChange: "-0.33",
+  },
+  {
+    ticker: "BABA",
+    name: "Alibaba Group Holding Ltd.",
+    price: 85.90,
+    sentiment: "neutral",
+    sentimentChange: "+0.01",
+  },
+  {
+    ticker: "SQ",
+    name: "Block, Inc. (Square)",
+    price: 68.55,
+    sentiment: "up",
+    sentimentChange: "+0.15",
+  },
+  {
+    ticker: "BA",
+    name: "The Boeing Company",
+    price: 177.32,
+    sentiment: "down",
+    sentimentChange: "-0.22",
+  },
+  {
+  ticker: "SHOP",
+  name: "Shopify Inc.",
+  price: 61.23,
+  sentiment: "up",
+  sentimentChange: "+0.37",
+},
+{
+  ticker: "TWTR",
+  name: "Twitter, Inc.",
+  price: 43.18,
+  sentiment: "neutral",
+  sentimentChange: "0.00",
+},
+{
+  ticker: "ROKU",
+  name: "Roku, Inc.",
+  price: 57.92,
+  sentiment: "down",
+  sentimentChange: "-0.26",
+},
+{
+  ticker: "TSM",
+  name: "Taiwan Semiconductor Mfg.",
+  price: 105.66,
+  sentiment: "up",
+  sentimentChange: "+0.48",
+},
+{
+  ticker: "ZM",
+  name: "Zoom Vid Communications, Inc.",
+  price: 71.14,
+  sentiment: "down",
+  sentimentChange: "-0.19",
+},
+{
+  ticker: "COIN",
+  name: "Coinbase Global, Inc.",
+  price: 244.22,
+  sentiment: "up",
+  sentimentChange: "+0.52",
+}
+
 ];
 
 export default initialCompanies;

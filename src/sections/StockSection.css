@@ -1,89 +1,232 @@
-.content-wrapper {
-  max-width: 1200px;
+/* StockSection.css */
+
+/* Root container: grid with sidebar + main */
+.stock-section-container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 50px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding-top: 50px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+/* Sidebar */
+.stock-sidebar {
+  display: none; /* hidden on small screens; shown in media query */
+}
+
+.sidebar-sticky {
+  position: sticky;
+  top: 20px;
+}
+
+.sidebar-title {
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  color: var(--accent-color);
+}
+
+.sidebar-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+  margin-bottom: 24px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.stat-value {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.stat-value.up,
+.stat-label.up {
+  color: var(--up-color);
+}
+
+.stat-value.down,
+.stat-label.down {
+  color: var(--down-color);
+}
+
+.stat-value.neutral,
+.stat-label.neutral {
+  color: var(--neutral-color);
+}
+
+/* Top Movers */
+.sidebar-section {
+  margin-bottom: 24px;
+}
+
+.sidebar-heading {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+.movers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.movers-group {
   display: flex;
   flex-direction: column;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: var(--accent-color);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.movers-group-label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 4px;
 }
+
+.movers-group-label.up {
+  color: var(--up-color);
+}
+.movers-group-label.down {
+  color: var(--down-color);
+}
+
+.mover-item {
+  font-size: 0.9rem;
+  padding: 4px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: background 0.2s;
+}
+
+.mover-item.up {
+  color: var(--up-color);
+}
+.mover-item.down {
+  color: var(--down-color);
+}
+
+.mover-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Filter buttons in sidebar */
+.sidebar-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.filter-btn:hover {
+  background: var(--accent-color);
+  color: var(--background-color);
+}
+
+.filter-btn.active {
+  border-color: var(--accent-color);
+  background: var(--accent-color);
+  color: var(--background-color);
+}
+
+/* Main area */
+.stock-main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header (title + search) sticky on scroll within main area? 
+   If you want header sticky at top of viewport, adjust to `position: sticky; top:0; z-index:...`. */
+.stock-main-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--accent-color);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* card-scroll-container: allow vertical scroll if needed */
 .card-scroll-container {
   flex: 1;
   overflow-y: auto;
-  padding-right: 10px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-color) transparent;
+  padding-bottom: 20px;
 }
+
+/* Grid of cards */
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
-  margin: 40px auto;
-  max-width: 1200px;
-  padding: 0 20px;
+  padding: 10px;
 }
 
-
-
-.search-container input {
-  flex: 2;
-  padding: 10px 15px;
-  border-radius: 18px;
-  border: 1px solid #555;
-  background-color: #0f172a;
+/* No results message */
+.no-results {
+  text-align: center;
+  padding: 40px;
+  font-size: 1rem;
   color: var(--text-color);
-  font-size: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-  outline: none;
+  opacity: 0.7;
 }
 
-.search-container input:focus {
-  border-color: var(--accent-color);
+/* Responsive: show sidebar on wider screens */
+@media (min-width: 992px) {
+  .stock-sidebar {
+    display: block;
+  }
 }
 
-.filter-dropdown {
-  flex: 1.5;
-  padding: 10px 15px;
-  border-radius: 18px;
-  border: 1px solid #555;
-  background-color: #0f172a;
-  color: var(--neutral-color);
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-  transition: border 0.3s ease, background-color 0.3s ease;
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg fill='%23ee9b00' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 16px 16px;
+/* On smaller screens, collapse to single column */
+@media (max-width: 991px) {
+  .stock-section-container {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+  }
+  .stock-sidebar {
+    display: none;
+  }
+  .stock-main {
+    margin: 0;
+  }
 }
 
-.filter-dropdown:hover,
-.filter-dropdown:focus {
-  border-color: var(--accent-color);
-  background-color: #152f2f;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .search-container {
+/* Further mobile tweaks */
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .search-filter-container {
     flex-direction: column;
     align-items: stretch;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .card-container {
-    grid-template-columns: 1fr;
   }
 }
