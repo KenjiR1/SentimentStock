@@ -14,7 +14,7 @@ export default function TraySummary() {
   const platforms = [
     { name: "Reddit", prevPercentPositive: 55, percentPositive: 65, color: "#FF4500" },
     { name: "Twitter", prevPercentPositive: 55, percentPositive: 58, color: "#1DA1F2" },
-    { name: "YouTube", prevPercentPositive: 58, percentPositive: 61, color: "#FF0000" },
+    { name: "YouTube", prevPercentPositive: 58, percentPositive: 62, color: "#FF0000" },
   ];
 
   // Overall summary text (optional)

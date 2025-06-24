@@ -14,7 +14,6 @@ export default function ExpandedCard({ stock, onClose }) {
   if (!stock) return null;
 
   return (
-    <AnimatePresence>
       <motion.div
         className="expanded-overlay"
         initial={{ opacity: 0 }}
@@ -42,6 +41,5 @@ export default function ExpandedCard({ stock, onClose }) {
         </div>
         </motion.div>
       </motion.div>
-    </AnimatePresence>
   );
 }

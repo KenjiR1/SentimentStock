@@ -43,7 +43,7 @@ const stockPrices = [
       {
         label: "Stock Price ($)",
         data: stockPrices,
-        borderColor: "blue",
+        borderColor: "rgb(0, 98, 255)",
         backgroundColor: "rgba(0,0,255,0.1)",
         yAxisID: "y",
         tension: 0.3,
