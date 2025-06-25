@@ -28,6 +28,7 @@ export default function ExpandedCard({ stock, onClose }) {
           exit={{ scale: 0.5, opacity: 0 }}
           transition={{ duration: 0.25, ease: "easeInOut" }}
         >
+
           <button className="close-btn" onClick={onClose}>✖</button>
           <h2>{stock.name} ({stock.ticker})</h2>
 
@@ -39,6 +40,13 @@ export default function ExpandedCard({ stock, onClose }) {
           <div className="tray-module"><TrayModel stock={stock}/></div>
           <div className="tray-module"><TrayPrediction stock={stock}/></div>
         </div>
+
+        <div
+            className="corner-glow"
+            style={{
+              background: `radial-gradient(circle at top left, ${stock.color || "#007acc"}55, transparent 70%)`
+            }}
+          />
         </motion.div>
       </motion.div>
   );

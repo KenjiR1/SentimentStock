@@ -17,8 +17,9 @@ export default function SearchBar({ searchTerm, setSearchTerm, filter, setFilter
                 onChange={(e) => setFilter(e.target.value)}
                 >
                 <option value="">Filter By...</option>
-                <option value="up">Highest Sentiment</option>
-                <option value="down">Lowest Sentiment</option>
+                <option value="up">A-Z</option>
+                <option value="down">Stock Price up</option>
+                <option value="down">Stock Price down</option>
                 </select>
             </div>
         </div>
