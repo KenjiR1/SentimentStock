@@ -5,7 +5,7 @@ import StockSection from "./sections/StockSection";
 import ExpandedCard from "./sections/ExpandedCard";
 import About from "./pages/About"; // ⬅️ you will create this file
 import Contact from "./pages/Contact"; // ⬅️ you will create this file
-import Footer from "./sections/footer";
+import Footer from "./sections/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
